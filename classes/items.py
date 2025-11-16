@@ -22,3 +22,7 @@ class Note(Item):
 
     def look(self):
         print(self.content)
+
+
+class Bottle(Item):
+    pass

@@ -1,5 +1,5 @@
-def input_data(message=''):
-    choice = input(f'{message}\n-> ')
+def input_data(message=""):
+    choice = input(f"{message}\n-> ")
     print()
     return choice
 

@@ -14,22 +14,22 @@ class Hero:
 class Gryffindor(Hero):
     def __int__(self, name):
         super().__init__(name)
-        self.house = 'Gryffindor'
+        self.house = "Gryffindor"
 
 
 class Slytherin(Hero):
     def __init__(self, name):
         super().__init__(name)
-        self.house = 'Slytherin'
+        self.house = "Slytherin"
 
 
 class Ravenclaw(Hero):
     def __init__(self, name):
         super().__init__(name)
-        self.house = 'Ravenclaw'
+        self.house = "Ravenclaw"
 
 
 class Hufflepuff(Hero):
     def __init__(self, name):
         super().__init__(name)
-        self.house = 'Hufflepuff'
+        self.house = "Hufflepuff"
