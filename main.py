@@ -1,6 +1,6 @@
 from classes.hero import Gryffindor, Slytherin, Ravenclaw, Hufflepuff
 from launcher import navigate_rooms
-from map import dungeon, corridor
+from map import corridor
 from utils import input_data, join
 
 
@@ -24,8 +24,7 @@ def beginning(name):
 def play_game():
     name = input_data("What is your name my friend?")
     hero = beginning(name)
-    navigate_rooms(hero, dungeon)
-    # navigate_rooms(hero, corridor)
+    navigate_rooms(hero, corridor)
 
 
 if __name__ == "__main__":

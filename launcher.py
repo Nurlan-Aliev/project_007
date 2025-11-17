@@ -6,7 +6,7 @@ from classes.hero import Hero
 
 
 def show_room_options(room: Room) -> str:
-    choices = ["bag", 'look around', *room.next_rooms.keys()]
+    choices = ["bag", "look around", *room.next_rooms.keys()]
     if room.creature:
         choices.insert(1, f"talk with {room.creature}")
 
@@ -34,7 +34,7 @@ def handle_choice(hero, room, choice) -> Room:
             return room
         return next_room
 
-    elif choice == 'look around':
+    elif choice == "look around":
         look_around(room, hero)
         return room
 

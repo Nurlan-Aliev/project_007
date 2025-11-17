@@ -16,12 +16,12 @@ def open_bag(hero):
 
 
 def select_item(item, hero, room=None):
-    options = ['back', 'look']
+    options = ["back", "look"]
 
     if room:
-        options.append('take it')
+        options.append("take it")
     else:
-        options.append('remove')
+        options.append("remove")
 
     while True:
         action = input_data(
@@ -34,8 +34,8 @@ def select_item(item, hero, room=None):
         elif action == "back":
             return
 
-        elif action == 'take it':
-            item_transfer(room,hero,item)
+        elif action == "take it":
+            item_transfer(room, hero, item)
             return
 
         elif action == "look":
