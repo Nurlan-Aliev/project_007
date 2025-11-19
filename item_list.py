@@ -7,9 +7,10 @@ note = Item(
 bottle = Item("bottle", "just Bottle")
 
 
-books1 = Item("зельеварение для начинающих", "")
-books2 = Item("редких зелий", "")
-books3 = Item("Секреты великих мастеров", "")
+book1 = Item("зельеварение для начинающих", "")
+book2 = Item("редких зелий", "")
+book3 = Item("Секреты великих мастеров", "")
+book4 = Item("Тайная книга заклинаний", "")
 
 
 asphodel_leaves = Item("Asphodel leaves", "Asphodel leaves")

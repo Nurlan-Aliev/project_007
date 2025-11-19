@@ -1,6 +1,6 @@
 class Bag:
-    def __init__(self):
-        self.items = []
+    def __init__(self, *args):
+        self.items = [item for item in args]
 
     def add(self, *args):
         for item in args:

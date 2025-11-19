@@ -4,5 +4,5 @@ def input_data(message=""):
     return choice
 
 
-def join(data):
-    return "\n".join(f"* {item}" for item in data)
+def join(data, sep="* "):
+    return "\n".join(f"{sep}{item}" for item in data)
