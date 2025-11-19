@@ -30,7 +30,7 @@ def handle_choice(hero, room, choice) -> Room:
     if choice == "Professor Snake's office":
         next_room = room.change_room(choice)
         if isinstance(next_room.creature, SnapeNPC) and hero.visible:
-            next_room.creature.quest(hero)
+            next_room.creature.talk(hero)
             return room
         return next_room
 
@@ -43,7 +43,7 @@ def handle_choice(hero, room, choice) -> Room:
         return room
 
     elif "talk" in choice and isinstance(room.creature, NPC):
-        room.creature.quest(hero)
+        room.creature.talk(hero)
         return room
 
     else:

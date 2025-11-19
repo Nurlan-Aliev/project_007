@@ -22,7 +22,11 @@ def beginning(name):
 
 
 def play_game():
-    name = input_data("What is your name my friend?")
+    print('Ты находишься в коридоре с живыми картинами Хогвартса. Сейчас идут уроки поэтому тут никого нет.\n'
+          'Тебе нужно приготовить зелье НАЗВАНИЕ ЗЕЛЬЯ. это достаточно сложное зелье и не каждому волшебнику дано его приготовить.\n'
+          'попробуй начать с библиотеки может там ты найдешь какие то подсказки\n'
+          'И постарайся не попадаться на глаза преподователям\n')
+    name = input_data("By the way what is your name my friend?")
     hero = beginning(name)
     navigate_rooms(hero, corridor)
 

@@ -9,4 +9,5 @@ class Item:
     def look(self):
         print(self.content)
 
-
+    def __str__(self):
+        return self.name
