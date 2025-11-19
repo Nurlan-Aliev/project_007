@@ -3,28 +3,75 @@ from nps_list import *
 from item_list import *
 
 corridor = Room(
-    "Corridor of living pictures", "a long corridor with living pictures", painting
+    "Corridor of living pictures",
+    "Все еще высокие потолки они настолько величественны им не видно конца и края наверху будто гроза но дождя нет по всему коридору стоят картны.\n"
+    "Эти картины любять помогать пуфейндуйцам остальных они не то чтобы уважюат, под ногами у себя ты видишь красную ковровую дорожку которая уходит в даль"
+    """
+    * в конце коридора есть виднеется кабинет проффессора Снейпа.
+    * справа библиотека хогвартса
+    * слева Ингредиентная
+    * позади я вижу дамский туалет"""
+    "Под ногами ты видишь красныую ковровую дорожку на стенах свечи освещающие эти темные коридоры.",
+    painting,
 )
-library = Room("Library", None)
-pantry = Room("Ingredients pantry", None)
-passage = Room("Ktiny passage", None)
+
+
+library = Room(
+    "Library",
+    """Ты находишься в древней библиотеке Хогвартса — это огромный зал с невероятным количеством книг. Здесь довольно тепло и уютно. Говорят, каждый ощущает здесь свой аромат,
+который расслабляет, и тебе сразу хочется сесть и читать, устроившись за одним из длинных столов и держа в руках одну из многочисленных книг.
+Также здесь сидит призрак мадам Лилейн, печально опустившая голову над книгой. Наверное, лучше её не беспокоить,
+если ты не хочешь слушать невероятно длинную и неинтересную историю о её бесконечных книгах и печальной любви.
+Среди всех этих книг тебе на глаза попадаются именно эти возможно они могу помочь.\n""",
+)
+
+
+ingredients_pantry = Room(
+    "Ingredients ingredients_pantry",
+    "Это большая достаточно просторная комната тут хранятся множество различных специй, трав, для приготовления зелий.\nтут виднеется:",
+)
+
+
+bathroom = Room(
+    "Ladies’ bathroom",
+    "Тут видно несколько кабинок уже все перестали пользоваться им так как тут Миртл,\n"
+    "она безобидная, но постаянно заставляет играть в свои игры, а они уже всех утомили. с этого коридора ведет тунель в подъземелье.\n"
+    "Еще одна причина не пользоваться этим туалетом. И о чем только думали проктировшики.",
+)
+
+
 office = Room(
     "Professor Snake's office",
-    "In a dim room you see a table with a candle on it,"
-    " a pile of papers, an open cabinet next to it, several bottles in the cabinet,"
-    " and parchment with some kind of recipe",
+    """Когда ты воешел сюда после коридора ты почувствовал будто оказался в маленькой коробочке кажется что тут невероятно тестно.
+стены давят с разных сторон и только тусклый луч света проникает в эту комнату через маленькое окно хоть как то освещая ее.
+По середине этой маленкой комнаты ты видишь столна столе есть какая то записка чернила, перо и свеча
+возле стола находится шкаф, в шкафу ты видишь склянки с различными ингридиентами.
+* листья асфодели
+* пустая склянка
+* лунный камень
+* Ключ
+* Записка
+Лучше тут долго не задерживаться так как проффессор может вернутся в любой момент.""",
     snape,
 )
-dungeon = Room("Dungeon/Potion Brewing", None)
+dungeon = Room(
+    "Dungeon/Potion Brewing",
+    "Темное мрачное подъземелье под нагами ты видишь песок свет сюда попадает только от выхода, это подземелье меньше\n"
+    "чем остальыне и им явно уже не пользуются. в темном улгу ты видишь жернова может они даже работают",
+)
 
 
-dungeon.add_room(pantry)
-pantry.add_room(dungeon, corridor)
-corridor.add_room(library, office, passage, pantry)
-passage.add_room(corridor)
+dungeon.add_room(ingredients_pantry)
+ingredients_pantry.add_room(dungeon, corridor)
+corridor.add_room(library, office, bathroom, ingredients_pantry)
+bathroom.add_room(corridor)
 office.add_room(corridor)
 library.add_room(corridor)
 
 
 office.items.add(bottle, bottle, bottle, note)
-library.items.add(books1, books2, books3, books4, books5)
+library.items.add(books1, books2, books3)
+
+ingredients_pantry.items.add(
+    pearl_powder, troll_whisker, dragon_blood, fairy_wings, rougarou_fur
+)

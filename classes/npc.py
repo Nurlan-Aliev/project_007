@@ -49,12 +49,11 @@ class PaintingNPC(NPC):
     def talk(self, hero):
         if self.status:
             if self.snape_in_room:
-                print(f"{self.name}: Snape is in his office now. I don't recommend going in.")
+                print(
+                    f"{self.name}: Snape is in his office now. I don't recommend going in."
+                )
             else:
                 print(f"{self.name}: Snape's not here right now. You can go.")
-
-
-
 
     def quest(self, hero):
         if hero.house == "Hufflepuff":
@@ -63,7 +62,8 @@ class PaintingNPC(NPC):
                 f"{self.name}: Hufflepuff, what did you want, my boy?\n"
                 f"{hero.name}: Could you tell me when Professor Snape will not be in his office?\n"
                 f"{self.name}: I'm bored with the picture here, guess the riddle and I'll help.\n"
-                "Зимой и летом одним цветом")
+                "Зимой и летом одним цветом"
+            )
 
             answer = input_data().lower()
 
@@ -84,22 +84,21 @@ class GhostNPC(NPC):
 
     def talk(self, hero):
         guess_num = random.randint(1, 100)
-        print('правила')
+        print("правила")
         for _ in range(8):
-            number = int(input_data('твой вариант'))
+            number = int(input_data("твой вариант"))
             if number > guess_num:
-                print('нет, это много')
+                print("нет, это много")
             elif number < guess_num:
-                print('нет, это мало')
+                print("нет, это мало")
             else:
-                print('u win')
+                print("u win")
                 break
         else:
             print("u lose")
 
     def quest(self, hero):
         if self.status:
-            print('картины в коридоре прячут ключ. присмотрись')
+            print("картины в коридоре прячут ключ. присмотрись")
         else:
             pass
-
