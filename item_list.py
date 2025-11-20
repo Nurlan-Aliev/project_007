@@ -1,30 +1,27 @@
 from classes.items import Item
-
-note = Item(
-    "potion recipe",
-    "Take some onion, fry it over medium heat, and you'll have fried onions.",
-)
-bottle = Item("bottle", "just Bottle")
+from config import config
 
 
-book1 = Item("зельеварение для начинающих", "")
-book2 = Item("редких зелий", "")
-book3 = Item("Секреты великих мастеров", "")
-book4 = Item("Тайная книга заклинаний", "")
+book1 = Item(**config.items.book1)
+book2 = Item(**config.items.book2)
+book3 = Item(**config.items.book3)
 
 
-asphodel_leaves = Item("Asphodel leaves", "Asphodel leaves")
-empty_vial = Item("Empty vial", "Empty vial")
-moonstone = Item("Empty vial", "Moonstone")
-key = Item("Key", "Ключ от ингрединтной")
-Note = Item(
-    "Note",
-    "В древних книгах некоторые рецепты Написаны ошибочно и порой для изготовления каких-то зелий нужен не камень а каменная пыль.",
-)
+asphodel_leaves = Item(**config.items.asphodel_leaves)
+empty_vial = Item(**config.items.empty_vial)
+moonstone = Item(**config.items.moonstone)
+key = Item(**config.items.key)
+note = Item(**config.items.note)
+moon_dust = Item(**config.items.note)
+
+pearl_dust = Item(**config.items.pearl_powder)
+troll_whisker = Item(**config.items.troll_whisker)
+dragon_blood = Item(**config.items.dragon_blood)
+fairy_wings = Item(**config.items.fairy_wings)
+rougarou_fur = Item(**config.items.rougarou_fur)
 
 
-pearl_powder = Item("Pearl powder", "")
-troll_whisker = Item("Troll whisker", "")
-dragon_blood = Item("Dragon blood", "")
-fairy_wings = Item("Fairy wings", "")
-rougarou_fur = Item("Rougarou fur", "")
+tears = Item(**config.items.tears)
+
+
+moon_light = Item(**config.items.moonlight)

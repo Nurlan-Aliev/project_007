@@ -13,6 +13,12 @@ class Bag:
     def remove(self, item):
         self.items.remove(item)
 
+    def is_in_bag(self, *args):
+        for item in args:
+            if item not in self.items:
+                return False
+        return True
+
     def __str__(self):
         return self.items
 

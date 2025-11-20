@@ -6,6 +6,7 @@ class Hero:
         self.name = name
         self.bag = Bag()
         self.visible = True
+        self.spells = False
 
     def __str__(self):
         return self.name
