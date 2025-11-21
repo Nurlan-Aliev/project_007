@@ -102,7 +102,7 @@ class MirtleNPC(NPC):
         print(f"{self.name}: hi, {hero.name}, ты хочешь со мной поиграть?")
         answer = input_data(join(answers)).lower()
 
-        if "слез" in answer:
+        if "tear" in answer:
             print(f"{self.name} Я бы могла для тебя заплакать ты со мной сыграешь")
             self.tears_status = self.guest_number()
             if self.tears_status:
@@ -116,8 +116,6 @@ class MirtleNPC(NPC):
                         sep="",
                     ),
                 )
-        elif "snape" in answer:
-            print("я бы могла сделать это если ты со мной сыграешь")
 
         elif "да" in answer:
             self.guest_number()
