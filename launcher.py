@@ -14,7 +14,6 @@ def show_room_options(room: Room) -> str:
     if room.name == "Dungeon":
         choices.append("combine all items")
         choices.append("millstones")
-
     return input_data(f"What do you want?\n{join(choices)}")
 
 
@@ -28,15 +27,15 @@ def combine_items(hero):
 
 def millstones(hero):
     print("Жернова заблокированы чтобы разблокировать нужно сыграть 3 игры")
-    count = 0
-    for _ in range(3):
-        str_of_num, correct_answer = get_round_data()
-        input_data(join(("Нужно найти не достающее число", str_of_num), sep="")).strip()
-        if input_data == correct_answer:
-            count += 1
-
-    if count < 3:
+    str_of_num, correct_answer = get_round_data()
+    answer = input_data(
+        join(("Нужно найти не достающее число", str_of_num), sep="")
+    ).strip()
+    if int(answer) != int(correct_answer):
         print("Не удалось разблокировать")
+        return
+
+    print("У тебя получилось")
 
     item = input_data(join(hero.bag)).lower()
 
@@ -72,7 +71,9 @@ def handle_choice(hero, room, choice) -> Room:
 
     if choice == "Professor Snake's office":
         next_room = room.change_room(choice)
-        if isinstance(next_room.creature, SnapeNPC) and hero.visible:
+        if tears in hero.bag:
+            next_room.creature = None
+        if isinstance(next_room.creature, SnapeNPC):
             next_room.creature.talk(hero)
             return room
         return next_room
@@ -94,5 +95,6 @@ def handle_choice(hero, room, choice) -> Room:
 
 def navigate_rooms(hero: Hero, rooms: Room):
     while True:
+        print(rooms.clue)
         choice = show_room_options(rooms)
         rooms = handle_choice(hero, rooms, choice)

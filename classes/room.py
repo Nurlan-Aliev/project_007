@@ -3,13 +3,14 @@ from utils import input_data
 
 
 class Room:
-    def __init__(self, name, description, creature=None, blocked=False):
+    def __init__(self, name, description, clue="", creature=None, blocked=False):
         self.name = name
         self.description = description
         self.creature = creature
         self.next_rooms = {}
         self.items = Bag()
         self.blocked = blocked
+        self.clue = clue
 
     def add_room(self, *args):
         for room in args:

@@ -5,7 +5,6 @@ class Hero:
     def __init__(self, name):
         self.name = name
         self.bag = Bag()
-        self.visible = True
         self.spells = False
         self.house = None
 

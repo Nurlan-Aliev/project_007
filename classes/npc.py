@@ -1,5 +1,4 @@
 from item_list import tears, moon_light, asphodel_leaves, moonstone
-from mini_game import is_prime
 from utils import input_data, join
 import random
 from config import config
@@ -44,7 +43,13 @@ class SnapeNPC(NPC):
 
             return
 
-        print(f"{self.name}: Why are you here? Get out!\n")
+        print(
+            f"{self.name}: Какая удача встретить вас здесь мне как раз нужна была ваша помошь тем чтобы перетаскать все эти книги\n"
+        )
+        print(
+            "снейп заставил тебя с таскать кники весь день и ты не успел приготовить зелье"
+        )
+        quit()
 
 
 class PaintingNPC(NPC):
@@ -61,22 +66,22 @@ class PaintingNPC(NPC):
             else:
                 print(f"{self.name}: Snape's not here right now. You can go.")
 
-        elif hero.house == "Hufflepuff":
+        elif hero.house != "Slytherin":
             print(
-                f"{self.name}: Hufflepuff, what did you want, my boy?\n"
+                f"{self.name}: what did you want, my boy?\n"
                 f"{hero.name}: Could you tell me when Professor Snape will not be in his office?\n"
                 f"{self.name}: I'm bored with the picture here, guess the riddle and I'll help.\n"
             )
             self.quest()
         else:
-            print(f"I don't intend to talk to anyone from the faculty {hero.house}")
+            print(f"I don't intend to talk to anyone from the faculty Slytherin")
 
     def quest(self):
-        print("Зимой и летом одним цветом")
+        print("Маленький, золотой, в воздухе свищу. Поймаешь меня — победу принесу.")
 
         answer = input_data().lower()
 
-        if answer == "ёлка":
+        if answer == "снитч":
             print("I'll tell you when he's not there.")
             self.status = True
         else:
@@ -93,8 +98,6 @@ class MirtleNPC(NPC):
         answers = []
         if not self.tears_status:
             answers.append("can you lend me your tears")
-        if not self.snape_status and hero.house == "Ravenclaw":
-            answers.append("Can you distract Professor Snape?")
 
         print(f"{self.name}: hi, {hero.name}, ты хочешь со мной поиграть?")
         answer = input_data(join(answers)).lower()

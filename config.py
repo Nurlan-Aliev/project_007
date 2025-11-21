@@ -31,6 +31,7 @@ class Descriptions:
             ),
             sep="",
         ),
+        "clue": "главное не попасться проффессору Снейпу на глаза иначе точно не успеешь",
     }
 
     library = {
@@ -45,6 +46,7 @@ class Descriptions:
             ),
             sep="",
         ),
+        "clue": "",
     }
 
     ingredients_pantry = {

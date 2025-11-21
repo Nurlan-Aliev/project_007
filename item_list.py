@@ -12,7 +12,7 @@ empty_vial = Item(**config.items.empty_vial)
 moonstone = Item(**config.items.moonstone)
 key = Item(**config.items.key)
 note = Item(**config.items.note)
-moon_dust = Item(**config.items.note)
+moon_dust = Item(**config.items.moon_dust)
 
 pearl_dust = Item(**config.items.pearl_powder)
 troll_whisker = Item(**config.items.troll_whisker)
