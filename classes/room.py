@@ -14,7 +14,7 @@ class Room:
 
     def add_room(self, *args):
         for room in args:
-            self.next_rooms[room.name] = room
+            self.next_rooms.update(room)
 
     def change_room(self, choice):
         if choice not in self.next_rooms.keys():
@@ -23,11 +23,10 @@ class Room:
 
         if self.next_rooms[choice].blocked:
             print("this room is blocked")
-            answer = input_data("Do you have key?")
+            answer = input_data("Maybe you know a spell to open the door?")
             if answer.lower() != "alohomora":
                 return self
             self.blocked = False
-            return self.next_rooms[choice]
 
         return self.next_rooms[choice]
 

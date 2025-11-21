@@ -3,6 +3,11 @@ from config import config
 from nps_list import *
 import item_list
 
+north = "север"
+south = "юг"
+east = "восток"
+west = "запад"
+
 corridor = Room(
     **config.description.corridor,
     creature=painting,
@@ -14,12 +19,14 @@ office = Room(**config.description.office, creature=snape)
 dungeon = Room(**config.description.dungeon)
 
 
-dungeon.add_room(bathroom)
-ingredients_pantry.add_room(corridor)
-corridor.add_room(library, office, bathroom, ingredients_pantry)
-bathroom.add_room(corridor, dungeon)
-office.add_room(corridor)
-library.add_room(corridor)
+dungeon.add_room({north: bathroom})
+ingredients_pantry.add_room({east: corridor})
+corridor.add_room(
+    {north: library}, {east: office}, {south: bathroom}, {west: ingredients_pantry}
+)
+bathroom.add_room({north: corridor}, {south: dungeon})
+office.add_room({west: corridor})
+library.add_room({south: corridor})
 
 
 office.items.add(

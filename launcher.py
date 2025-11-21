@@ -8,6 +8,7 @@ from item_list import *
 
 
 def show_room_options(room: Room) -> str:
+    print(room.next_rooms.keys())
     choices = ["bag", "look around", *room.next_rooms.keys()]
     if room.creature:
         choices.insert(1, f"talk with {room.creature}")
