@@ -14,10 +14,10 @@ office = Room(**config.description.office, creature=snape)
 dungeon = Room(**config.description.dungeon)
 
 
-dungeon.add_room(ingredients_pantry)
-ingredients_pantry.add_room(dungeon, corridor)
+dungeon.add_room(bathroom)
+ingredients_pantry.add_room(corridor)
 corridor.add_room(library, office, bathroom, ingredients_pantry)
-bathroom.add_room(corridor)
+bathroom.add_room(corridor, dungeon)
 office.add_room(corridor)
 library.add_room(corridor)
 

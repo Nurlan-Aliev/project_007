@@ -7,6 +7,7 @@ class Hero:
         self.bag = Bag()
         self.visible = True
         self.spells = False
+        self.house = None
 
     def __str__(self):
         return self.name
@@ -16,6 +17,7 @@ class Gryffindor(Hero):
     def __int__(self, name):
         super().__init__(name)
         self.house = "Gryffindor"
+        self.bag.add()
 
 
 class Slytherin(Hero):

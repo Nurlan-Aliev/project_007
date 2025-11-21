@@ -1,4 +1,5 @@
 from bag_func import open_bag, select_item
+from mini_game import get_round_data
 from utils import input_data, join
 from classes.npc import NPC, SnapeNPC
 from classes.room import Room
@@ -26,12 +27,24 @@ def combine_items(hero):
 
 
 def millstones(hero):
+    print("Жернова заблокированы чтобы разблокировать нужно сыграть 3 игры")
+    count = 0
+    for _ in range(3):
+        str_of_num, correct_answer = get_round_data()
+        input_data(join(("Нужно найти не достающее число", str_of_num), sep="")).strip()
+        if input_data == correct_answer:
+            count += 1
+
+    if count < 3:
+        print("Не удалось разблокировать")
+
     item = input_data(join(hero.bag)).lower()
+
     if item == moonstone.name.lower():
         hero.bag.remove(moonstone)
         hero.bag.add(moon_dust)
     else:
-        print("я не могу это размолоть")
+        print("Это нельзя размолоть")
 
 
 def look_around(room, hero):
@@ -54,7 +67,7 @@ def handle_choice(hero, room, choice) -> Room:
 
     if choice == "millstones":
         if hero.bag.is_in_bag(moonstone):
-            millstones(moonstone, hero)
+            millstones(hero)
         return room
 
     if choice == "Professor Snake's office":

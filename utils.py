@@ -1,7 +1,7 @@
 def input_data(message=""):
     choice = input(f"{message}\n-> ")
     print()
-    return choice
+    return choice.strip()
 
 
 def join(data, sep="* "):

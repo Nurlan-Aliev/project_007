@@ -21,9 +21,6 @@ def library(hero):
         "items": Bag(book1, book2, book3),
     }
 
-    if hero.house == "Ravenclaw":
-        room["items"].add(book4)
-
 
 def ingredients_pantry(hero):
     pass

@@ -1,4 +1,5 @@
 from item_list import tears, moon_light, asphodel_leaves, moonstone
+from mini_game import is_prime
 from utils import input_data, join
 import random
 from config import config
@@ -85,31 +86,42 @@ class PaintingNPC(NPC):
 class MirtleNPC(NPC):
     def __init__(self):
         super().__init__("Плакса Миртл")
-        self.status = False
+        self.tears_status = False
+        self.snape_status = False
 
     def talk(self, hero):
-        print(f"{self.name}: привет, {hero.name}, ты хочешь со мной поиграть?")
-        answer = input_data()
+        answers = []
+        if not self.tears_status:
+            answers.append("can you lend me your tears")
+        if not self.snape_status and hero.house == "Ravenclaw":
+            answers.append("Can you distract Professor Snape?")
+
+        print(f"{self.name}: hi, {hero.name}, ты хочешь со мной поиграть?")
+        answer = input_data(join(answers)).lower()
+
         if "слез" in answer:
             print(f"{self.name} Я бы могла для тебя заплакать ты со мной сыграешь")
-            self.status = self.quest()
-            if self.status:
+            self.tears_status = self.guest_number()
+            if self.tears_status:
                 print(
                     f"{self.name}:",
                     join(
                         (
                             f"Ой мне совсем не хочется плакать, но ты выиграл та что я помогу ты наверняка занешь мадам Лилейн",
-                            "\t\t\tона сейчас скорее всего сидит в библиотеке попроси ее рассказать о ее муже и слезы точно будут",
+                            "       она сейчас скорее всего сидит в библиотеке попроси ее рассказать о ее муже и слезы точно будут",
                         ),
                         sep="",
                     ),
                 )
+        elif "snape" in answer:
+            print("я бы могла сделать это если ты со мной сыграешь")
+
         elif "да" in answer:
-            self.quest()
+            self.guest_number()
         else:
             print(f"{self.name}: Не хочу ничего слышать если ты не хочешь играть")
 
-    def quest(self):
+    def guest_number(self):
         too_high_responses = [
             "Слишком много!",
             "Попробуй число поменьше.",
@@ -129,7 +141,7 @@ class MirtleNPC(NPC):
         print(
             f"{self.name}: Правила очень просты я загадала число от 1 до 100 тебе нужно угадать я дам тебе 9 попыток это вполне реально"
         )
-        for _ in range(8):
+        for _ in range(9):
             number = int(input_data())
             if number > guess_num:
                 print(random.choice(too_high_responses))
