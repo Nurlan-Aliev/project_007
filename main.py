@@ -7,16 +7,16 @@ from utils import input_data, join
 
 def beginning(name):
     hero_list = {
-        "Slytherin": Slytherin,
-        "Ravenclaw": Ravenclaw,
-        "Hufflepuff": Hufflepuff,
-        "Gryffindor": Gryffindor,
+        "slytherin": Slytherin,
+        "ravenclaw": Ravenclaw,
+        "hufflepuff": Hufflepuff,
+        "gryffindor": Gryffindor,
     }
 
-    houses_text = join(hero_list)
+    houses_text = join(hero_list.keys())
 
     while True:
-        hero = input_data(f"Choose a house\n{houses_text}")
+        hero = input_data(f"Choose a house\n{houses_text}").lower()
         if hero in hero_list:
             return hero_list[hero](name)
         print("Invalid choice. Try again.")

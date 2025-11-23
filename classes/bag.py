@@ -24,3 +24,6 @@ class Bag:
 
     def __iter__(self):
         return iter(self.items)
+
+    def __bool__(self):
+        return bool(self.items)

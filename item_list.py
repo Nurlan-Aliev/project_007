@@ -24,4 +24,4 @@ rougarou_fur = Item(**config.items.rougarou_fur)
 tears = Item(**config.items.tears)
 
 
-moon_light = Item(**config.items.moonlight)
+moonlight_recept = Item(**config.items.moonlight_recept)

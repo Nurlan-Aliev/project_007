@@ -18,7 +18,6 @@ class Room:
 
     def change_room(self, choice):
         if choice not in self.next_rooms.keys():
-            print(f"{choice} it is not in the next room list")
             return self
 
         if self.next_rooms[choice].blocked:

@@ -1,4 +1,4 @@
-from item_list import tears, moon_light, asphodel_leaves, moonstone
+from item_list import tears, moonlight_recept, asphodel_leaves, moonstone
 from utils import input_data, join
 import random
 from config import config
@@ -35,7 +35,7 @@ class SnapeNPC(NPC):
 
             if "recipe" in answer:
                 print(f"{self.name}: Here. Do try not to ruin it.\n")
-                hero.bag.add(moon_light, asphodel_leaves, moonstone)
+                hero.bag.add(asphodel_leaves, moonstone)
                 self.status = True
 
             else:
@@ -103,6 +103,10 @@ class MirtleNPC(NPC):
         answer = input_data(join(answers)).lower()
 
         if "tear" in answer:
+            if self.tears_status:
+                print(
+                    "я же сказала что слезу можно взять у Лилейн если спросить о ее муже"
+                )
             print(f"{self.name} Я бы могла для тебя заплакать ты со мной сыграешь")
             self.tears_status = self.guest_number()
             if self.tears_status:
@@ -170,7 +174,9 @@ class MadamLileynNPC(NPC):
         answer = input_data()
         if "муж" in answer and not self.status:
             print(self.name, config.npc.husband_story_madam_lileyn)
-            print(f"{hero.name}: Я бы хотел собрать ваши слезы если вы не возражаете")
+            print(
+                f"{hero.name}: Мадам Лилейн, позволите мне собрать одну вашу слезу? В ней больше света, чем в половине заклинаний Хогвартса."
+            )
             self.status = True
             hero.bag.add(tears)
         else:
